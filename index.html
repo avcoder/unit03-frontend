@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌮 Foodtruck</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.9.2/dist/paper.min.css"
+    />
+    <style>
+      tbody td {
+        display: table-cell;
+        align-content: center;
+      }
+
+      .collapsible label {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <nav class="border fixed split-nav">
+          <div class="nav-brand">
+            <h3><a href="#">🌮 Foodtruck</a></h3>
+          </div>
+          <div class="collapsible">
+            <input
+              id="collapsible-nav"
+              type="checkbox"
+              name="collapsible-nav"
+            />
+            <label for="collapsible-nav">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </label>
+            <div class="collapsible-body">
+              <ul class="inline">
+                <li><a href="#">Queue</a></li>
+                <li><a href="#">Tickets</a></li>
+                <li>
+                  <a href="#" class="paper-btn btn-block btn-secondary"
+                    >+ Create Order</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="row flex-edges">
+        <input type="text" id="name" placeholder="Search" required />
+        <label class="paper-btn btn-secondary" for="modal-1">+ Add Order</label>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Receipt ID</th>
+            <th>Name</th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="root"></tbody>
+      </table>
+
+      <input class="modal-state" id="modal-1" type="checkbox" />
+      <div class="modal">
+        <label class="modal-bg" for="modal-1"></label>
+        <div class="modal-body">
+          <label class="btn-close" for="modal-1">X</label>
+          <h4 class="modal-title">New Order</h4>
+          <form id="dataForm">
+            <h5># 295</h5>
+            <input type="text" id="receipt_id" name="receipt_id" hidden />
+            <textarea
+              name="order"
+              id="order"
+              rows="5"
+              cols="40"
+              placeholder="Enter Order"
+            ></textarea
+            ><br />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter name"
+            /><br />
+            <button type="submit" class="btn-secondary">Submit Order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
