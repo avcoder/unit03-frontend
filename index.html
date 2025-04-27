@@ -45,9 +45,12 @@
                 <li><a href="#">Queue</a></li>
                 <li><a href="#">Tickets</a></li>
                 <li>
-                  <a href="#" class="paper-btn btn-block btn-secondary"
-                    >+ Create Order</a
+                  <label
+                    for="modal-1"
+                    class="paper-btn btn-block btn-secondary"
                   >
+                    + Create Order
+                  </label>
                 </li>
               </ul>
             </div>
@@ -62,7 +65,7 @@
       <table>
         <thead>
           <tr>
-            <th>Receipt ID</th>
+            <th>Receipt #</th>
             <th>Name</th>
             <th>Order</th>
             <th>Status</th>
@@ -98,6 +101,25 @@
             /><br />
             <button type="submit" class="btn-secondary">Submit Order</button>
           </form>
+        </div>
+      </div>
+
+      <input class="modal-state" id="modal-2" type="checkbox" />
+      <div class="modal">
+        <label class="modal-bg" for="modal-2"></label>
+        <div class="modal-body">
+          <label class="btn-close" for="modal-2">X</label>
+          <h4 class="modal-title">Are you sure?</h4>
+          <p class="modal-text">
+            Do you really want to delete #<span id="delete-text">this?</span>
+          </p>
+          <label
+            id="delete-confirmed"
+            for="modal-2"
+            class="paper-btn btn-danger btn-small"
+          >
+            Delete
+          </label>
         </div>
       </div>
     </div>
