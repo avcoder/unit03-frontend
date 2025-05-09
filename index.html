@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🌮 Foodtruck</title>
+    <title>Foodtruck</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/papercss@1.9.2/dist/paper.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌮</text></svg>"
     />
     <style>
       tbody td {
@@ -42,26 +46,29 @@
             </label>
             <div class="collapsible-body">
               <ul class="inline">
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Take Orders</a></li>
                 <li><a href="#">Queue</a></li>
                 <li><a href="#">Tickets</a></li>
-                <li>
-                  <label
-                    for="modal-1"
-                    class="paper-btn btn-block btn-secondary"
-                  >
-                    + Create Order
-                  </label>
-                </li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
-      <div class="row flex-edges">
-        <input type="text" id="name" placeholder="Search" required />
-        <label class="paper-btn btn-secondary" for="modal-1">+ Add Order</label>
+
+      <div class="container" style="margin-top: 100px">
+        <aside id="alert"></aside>
       </div>
 
+      <div class="container">
+        <div class="row flex-edges">
+          <input type="text" id="search" placeholder="Search" required />
+          <label class="paper-btn btn-secondary" for="modal-1"
+            >+ Add Order</label
+          >
+        </div>
+      </div>
       <table>
         <thead>
           <tr>
@@ -83,11 +90,9 @@
           <label class="btn-close" for="modal-1">X</label>
           <h4 class="modal-title">New Order</h4>
           <form id="dataForm">
-            <h5># 295</h5>
-            <input type="text" id="receipt_id" name="receipt_id" hidden />
             <textarea
-              name="order"
-              id="order"
+              name="customer-order"
+              id="customer-order"
               rows="5"
               cols="40"
               placeholder="Enter Order"
@@ -95,11 +100,18 @@
             ><br />
             <input
               type="text"
-              name="name"
-              id="name"
+              name="name-on-order"
+              id="name-on-order"
               placeholder="Enter name"
             /><br />
-            <button type="submit" class="btn-secondary">Submit Order</button>
+            <button
+              for="modal-1"
+              type="submit"
+              class="btn-secondary"
+              id="submit-order"
+            >
+              Submit Order
+            </button>
           </form>
         </div>
       </div>
@@ -120,6 +132,61 @@
           >
             Delete
           </label>
+        </div>
+      </div>
+
+      <input class="modal-state" id="modal-3" type="checkbox" />
+      <div class="modal">
+        <label class="modal-bg" for="modal-3"></label>
+        <div class="modal-body">
+          <label class="btn-close" for="modal-3">X</label>
+          <h4 class="modal-title">Edit Order</h4>
+          <div class="row flex-edges">
+            <h4 class="text-secondary"># <span id="edit-receipt-id"></span></h4>
+            <div class="form-group">
+              <label for="isReadySwitch" class="paper-switch-tile">
+                <input id="is-ready" name="isReadySwitch" type="checkbox" />
+                <div class="paper-switch-tile-card border">
+                  <div
+                    class="paper-switch-tile-card-front border background-warning"
+                  >
+                    Cooking
+                  </div>
+                  <div
+                    class="paper-switch-tile-card-back border background-success"
+                  >
+                    Ready
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <form id="dataForm">
+            <textarea
+              name="customer-order-2"
+              id="customer-order-2"
+              rows="5"
+              cols="40"
+              placeholder="Enter Order"
+            ></textarea
+            ><br />
+            <input
+              type="text"
+              name="name-on-order-2"
+              id="name-on-order-2"
+              placeholder="Enter name"
+            />
+
+            <br />
+            <button
+              for="modal-3"
+              type="submit"
+              class="btn-secondary"
+              id="update-order"
+            >
+              Update Order
+            </button>
+          </form>
         </div>
       </div>
     </div>
